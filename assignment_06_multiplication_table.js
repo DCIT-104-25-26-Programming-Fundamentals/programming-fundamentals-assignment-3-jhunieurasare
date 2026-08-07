@@ -1,3 +1,11 @@
+
+
+//
+// =============================================================================
+// YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
+// =============================================================================
+
+
 // =============================================================================
 // PROGRAMMING FUNDAMENTALS — Assignment 6
 // =============================================================================
@@ -54,9 +62,66 @@
 // - Each part must be in its own function (see scaffold below).
 // - Complete Part A before attempting Part B.
 
-//
-// =============================================================================
-// YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
-// =============================================================================
+
+const readlineSync = require("readline-sync");
+
+// Part A - Print one multiplication table
+function singleTable(number)
+{
+    console.log("\nMultiplication Table for " + number + ":");
+
+    for (let i = 1; i <= 12; i++)
+    {
+        console.log(number + "  x  " + i + "  =  " + (number * i));
+    }
+}
 
 
+// Part B - Print tables from 1 to N
+function tablesUpToN(n)
+{
+    for (let number = 1; number <= n; number++)
+    {
+        console.log("\nMultiplication Table for " + number + ":");
+
+        for (let i = 1; i <= 12; i++)
+        {
+            console.log(number + "  x  " + i + "  =  " + (number * i));
+        }
+
+        if (number < n)
+        {
+            console.log("---------------------------");
+        }
+    }
+}
+
+
+// Main function
+function main()
+{
+    // Part A
+    let number = readlineSync.questionInt("Enter a number: ");
+
+    if (number <= 0)
+    {
+        console.log("Error: Number must be positive.");
+        return;
+    }
+
+    singleTable(number);
+
+
+     // Part B
+    let n = readlineSync.questionInt("\nEnter N for tables from 1 to N: ");
+
+    if (n <= 0)
+    {
+        console.log("Error: N must be positive.");
+        return;
+    }
+
+    tablesUpToN(n);
+}
+
+main();
